@@ -1,0 +1,80 @@
+{
+  "name": "bszyk/breathtobody",
+  "type": "wordpress-theme",
+  "license": "MIT",
+  "description": "Custom WordPress yoga website theme",
+  "homepage": "https://breathtobody.com",
+  "authors": [
+    {
+      "name": "Ben Word",
+      "email": "ben@benword.com",
+      "homepage": "https://github.com/retlehs"
+    },
+    {
+      "name": "Scott Walkinshaw",
+      "email": "scott.walkinshaw@gmail.com",
+      "homepage": "https://github.com/swalkinshaw"
+    },
+    {
+      "name": "QWp6t",
+      "email": "hi@qwp6t.me",
+      "homepage": "https://github.com/qwp6t"
+    },
+    {
+      "name": "Brian Siklinski",
+      "email": "bszyk.codes@gmail.com",
+      "homepage": "https://github.com/bszyk"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "theme",
+    "yoga"
+  ],
+  "support": {
+    "issues": "https://github.com/roots/sage/issues",
+    "forum": "https://discourse.roots.io/"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "composer/installers": "~1.9",
+    "illuminate/support": "5.6.*",
+    "roots/sage-lib": "~9.0.9",
+    "soberwp/controller": "~2.1.0",
+    "wpackagist-plugin/advanced-custom-fields":"^5.11.4"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^2.8.0",
+    "roots/sage-installer": "~1.6"
+  },
+  "scripts": {
+    "test": [
+      "phpcs"
+    ],
+    "post-create-project-cmd": [
+      "Roots\\Sage\\Installer\\ComposerScript::postCreateProject"
+    ]
+  },
+  "extra": {
+    "installer-paths": {
+        "../../plugins/{$name}/": [
+            "type:wordpress-plugin"
+        ]
+    }
+}
+}
