@@ -22,18 +22,19 @@ $menu_args_mobile = [
 ];
 @endphp
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-info px-0 px-lg-3">
+<nav class="navbar navbar-expand-lg bg-info text-secondary px-0 px-lg-4 py-2">
     <div class="container-fluid justify-content-center">
         <div class="row w-100">
-            <div class="col-9 col-lg-4 d-flex align-items-center">
-                <a href="#" class="h1 brand">{!! App::site_name() !!}</a>
+            <div class="col-9 col-lg-5 d-flex align-items-center">
+                <img src="{!! $site_icon_url !!}" class="d-none d-lg-inline-block img-fluid rounded mr-3" style="max-width:60px;height:auto;">
+                <a href="#" class="h1 brand text-primary mb-0" alt="logo">{!! $site_name !!}</a>
             </div>
-            <div class="col-8 d-none d-lg-flex align-items-center justify-content-end">
+            <div class="col-7 d-none d-lg-flex align-items-center justify-content-end">
                 {!! wp_nav_menu($menu_args_desktop) !!}
             </div>
             <div class="col-3 d-lg-none d-lg-flex align-items-center pr-0 pr-lg-3">
                 <div class="container h-100 d-flex d-lg-none align-items-center">
-                    <button class="navbar-toggle btn btn-primary ml-auto" type="button" data-toggle="collapse"
+                    <button class="navbar-toggle btn btn-secondary ml-auto" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon d-flex align-items-center justify-content-center">
