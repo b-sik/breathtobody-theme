@@ -26,18 +26,12 @@ $menu_args_mobile = [
     <div class="container-fluid justify-content-center">
         <div class="row w-100">
             <div class="col-9 col-lg-4 d-flex align-items-center">
-                <a href="#" class="h1 brand">Brand</a>
+                <a href="#" class="h1 brand">{!! App::site_name() !!}</a>
             </div>
-            <div class="col-4 d-none d-lg-flex align-items-center">
+            <div class="col-8 d-none d-lg-flex align-items-center justify-content-end">
                 {!! wp_nav_menu($menu_args_desktop) !!}
             </div>
-            <div class="col-3 col-lg-4 d-lg-flex align-items-center pr-0 pr-lg-3">
-                <div class="container d-none d-lg-flex justify-content-end">
-                    <div class="row">
-                        {{-- @include('partials.components.icon-group', ['icons' => $streaming_services, 'anchor_classes' => 'ml-2'])
-                        @include('partials.components.icon-group', ['icons' => $socials, 'anchor_classes' => 'ml-2']) --}}
-                    </div>
-                </div>
+            <div class="col-3 d-lg-none d-lg-flex align-items-center pr-0 pr-lg-3">
                 <div class="container h-100 d-flex d-lg-none align-items-center">
                     <button class="navbar-toggle btn btn-primary ml-auto" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

@@ -6,7 +6,7 @@ use Sober\Controller\Controller;
 
 class App extends Controller
 {
-    public function siteName()
+    public function site_name()
     {
         return get_bloginfo('name');
     }
@@ -29,5 +29,15 @@ class App extends Controller
             return __('Not Found', 'breathtobody');
         }
         return get_the_title();
+    }
+
+    public function hero_image_url()
+    {
+        $frontpage_id = get_option('page_on_front');
+        return get_field('hero_image', $frontpage_id);
+    }
+
+    public function site_icon_url() {
+        return get_site_icon_url();
     }
 }
