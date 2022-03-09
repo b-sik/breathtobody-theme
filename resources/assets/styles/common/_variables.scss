@@ -22,7 +22,7 @@ $secondary: #64ddee;
 $dark: #323031;
 $light: $gray-200;
 $info: #201e50;
-$danger: #fc6471;
+$danger: darken(#fc6471, 22.5%);
 
-$body-bg: $gray-400;
+$body-bg: $gray-300;
 $body-color: $dark;

@@ -2,6 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .hero-height {
   @include media-breakpoint-down(lg) {
     height: 30vh;

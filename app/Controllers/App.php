@@ -6,16 +6,6 @@ use Sober\Controller\Controller;
 
 class App extends Controller
 {
-    /**
-     * Homepage ID.
-     */
-    public int $frontpage_id;
-
-    /**
-     * All ACF fields for a given page or post.
-     * @param array|bool
-     */
-    public $fields;
 
     /**
      * ACF Content field.
@@ -34,8 +24,6 @@ class App extends Controller
      */
     public function __construct()
     {
-        $this->frontpage_id = get_option('page_on_front');
-        $this->fields = get_fields();
         $this->content = $this->fields['content'];
         $this->content_with_image = $this->fields['content_with_image'];
     }
@@ -54,6 +42,11 @@ class App extends Controller
     public function tagline()
     {
         return get_bloginfo('description');
+    }
+
+    public function frontpage_id()
+    {
+        return get_option('page_on_front');
     }
 
     /**
@@ -102,7 +95,7 @@ class App extends Controller
      */
     public function fields()
     {
-        return $this->fields;
+        return get_fields();
     }
 
     /**
@@ -110,14 +103,43 @@ class App extends Controller
      */
     public function content()
     {
-        return $this->content;
+        $fields = get_fields();
+        return $fields['content'];
     }
 
     /**
      * ACF Content With Image field.
      */
-    public function content_with_image()
+    public function content_with_image_right()
     {
-        return $this->content_with_image;
+        $fields = get_fields();
+        return $fields['content_with_image_right'];
+    }
+
+    /**
+     * ACF Content With Image field.
+     */
+    public function content_with_image_left()
+    {
+        $fields = get_fields();
+        return $fields['content_with_image_left'];
+    }
+
+    /**
+     * About page content.
+     */
+    public function about_page_content()
+    {
+        $id = get_page_by_title('About');
+        return get_fields($id);
+    }
+
+    /**
+     * About page featured image.
+     */
+    public function about_page_image()
+    {
+        $id = get_page_by_title('About');
+        return get_the_post_thumbnail($id, 'medium', array('class' => 'img-fluid rounded'));
     }
 }
