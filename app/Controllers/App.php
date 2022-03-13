@@ -6,26 +6,11 @@ use Sober\Controller\Controller;
 
 class App extends Controller
 {
-
-    /**
-     * ACF Content field.
-     * @param array|bool
-     */
-    public $content;
-
-    /**
-     * ACF Content with image field.
-     * @param array|bool
-     */
-    public $content_with_image;
-
     /**
      * Construct.
      */
     public function __construct()
     {
-        $this->content = $this->fields['content'];
-        $this->content_with_image = $this->fields['content_with_image'];
     }
 
     /**
@@ -46,7 +31,7 @@ class App extends Controller
 
     public function frontpage_id()
     {
-        return get_option('page_on_front');
+        return intval(get_option('page_on_front'));
     }
 
     /**
@@ -78,7 +63,7 @@ class App extends Controller
     public function hero_image_url()
     {
         if (function_exists('get_field')) {
-            return get_field('hero_image', $this->frontpage_id);
+            return get_field('hero_image', $this->frontpage_id());
         }
     }
 
@@ -95,7 +80,9 @@ class App extends Controller
      */
     public function fields()
     {
-        return get_fields();
+        if (function_exists('get_fields')) {
+            return get_fields();
+        }
     }
 
     /**
@@ -103,8 +90,10 @@ class App extends Controller
      */
     public function content()
     {
-        $fields = get_fields();
-        return $fields['content'];
+        if (function_exists('get_fields')) {
+            $fields = get_fields();
+            return $fields['content'];
+        }
     }
 
     /**
@@ -112,8 +101,10 @@ class App extends Controller
      */
     public function content_with_image_right()
     {
-        $fields = get_fields();
-        return $fields['content_with_image_right'];
+        if (function_exists('get_fields')) {
+            $fields = get_fields();
+            return $fields['content_with_image_right'];
+        }
     }
 
     /**
@@ -121,8 +112,10 @@ class App extends Controller
      */
     public function content_with_image_left()
     {
-        $fields = get_fields();
-        return $fields['content_with_image_left'];
+        if (function_exists('get_fields')) {
+            $fields = get_fields();
+            return $fields['content_with_image_left'];
+        }
     }
 
     /**
@@ -130,8 +123,10 @@ class App extends Controller
      */
     public function about_page_content()
     {
-        $id = get_page_by_title('About');
-        return get_fields($id);
+        if (function_exists('get_fields')) {
+            $id = get_page_by_title('About');
+            return get_fields($id);
+        }
     }
 
     /**

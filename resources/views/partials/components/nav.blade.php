@@ -22,7 +22,7 @@ $menu_args_mobile = [
 ];
 @endphp
 
-<nav class="navbar navbar-expand-lg bg-info text-secondary px-0 px-lg-4 py-2">
+<nav class="navbar sticky-top navbar-expand-lg bg-info text-secondary px-0 px-lg-4 py-2">
     <div class="container-fluid justify-content-center">
         <div class="row w-100">
             <div class="col-9 col-lg-5 d-flex align-items-center">

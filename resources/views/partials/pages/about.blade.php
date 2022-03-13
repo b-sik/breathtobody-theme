@@ -8,14 +8,14 @@ $rr_logo = $about_page_content['rr_logo'];
 $rr_url = $about_page_content['rr_url'];
 @endphp
 
-<div class="container-fluid bg-light py-4">
+<section id="about" class="container-fluid bg-light pb-4 pt-5">
     <div class="container">
         <hr class="bg-primary">
         <h2 class="text-center">{{ __('About', 'breathtobody') }}</h2>
         <hr class="bg-primary">
 
         <div class="row py-5">
-            @if (!empty($about_content_img_left))
+            @if (!empty($about_content_img_left['content']) && !empty($about_content_img_left['image']))
                 @include('partials.acf.content-with-image-left', [
                     'content_override' => $about_content_img_left,
                 ])
@@ -29,7 +29,7 @@ $rr_url = $about_page_content['rr_url'];
         </div>
 
         <div class="row py-5">
-            @if (!empty($about_content_img_right))
+            @if (!empty($about_content_img_right['content']) && !empty($about_content_img_right['image']))
                 @include('partials.acf.content-with-image-right', [
                     'content_override' => $about_content_img_right,
                 ])
@@ -44,7 +44,7 @@ $rr_url = $about_page_content['rr_url'];
             @endif
         </div>
     </div>
-</div>
+</section>
 <div class="container">
     <div class="row my-5">
         <div class="col-6 col-lg-9 d-flex align-items-center">
@@ -54,7 +54,7 @@ $rr_url = $about_page_content['rr_url'];
             @if (!empty($rr_url))
                 <a href="{{ esc_url($rr_url) }}" target="_blank" rel="noopener noreferrer">
             @endif
-            <img src="{!! esc_url($rr_logo['sizes']['thumbnail']) !!}" alt="{{ esc_attr($rr_logo['alt']) }}" class="img-fluid">
+            <img src="{!! esc_url($rr_logo['sizes']['thumbnail']) !!}" alt="{{ esc_attr($rr_logo['alt']) }}" class="grow img-fluid">
             @if (!empty($rr_url))
                 </a>
             @endif
