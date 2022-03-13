@@ -25,3 +25,7 @@ ul {
     transform: scale(1.05);
   }
 }
+
+.tribe-events-calendar-month {
+  @extend .bg-white;
+}
