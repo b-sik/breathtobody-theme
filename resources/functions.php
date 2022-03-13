@@ -111,3 +111,16 @@ function register_navwalker()
 }
 
 add_action('after_setup_theme', 'register_navwalker');
+
+/**
+ * Fixes nav menu anchor links.
+ */
+function nav_menu_fix_anchor_link($items, $args)
+{
+    $items = explode('href="#', $items);
+    $items = $items[0] . 'href="' . get_site_url() . '/#' . $items[1];
+
+    return $items;
+}
+
+add_filter('wp_nav_menu_items', 'nav_menu_fix_anchor_link', 10, 2);
