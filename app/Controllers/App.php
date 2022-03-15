@@ -137,4 +137,53 @@ class App extends Controller
         $id = get_page_by_title('About');
         return get_the_post_thumbnail($id, 'medium', array('class' => 'img-fluid rounded'));
     }
+
+    /**
+     * About page content.
+     */
+    public function contact_page_id()
+    {
+        $contact_page = get_page_by_title('Contact');
+        return $contact_page->ID;
+    }
+
+    /**
+     * Contact page ACF fields.
+     */
+    public function contact_fields()
+    {
+        return get_fields($this->contact_page_id());
+    }
+
+    /**
+     * Contact page ACF fields.
+     */
+    public function gallery_id()
+    {
+        $gallery = get_page_by_title('Gallery');
+        return $gallery->ID;
+    }
+
+    /**
+     * Gallery page content.
+     */
+    public function gallery_content()
+    {
+        $gallery = get_page_by_title('Gallery');
+        return apply_filters('the_content', $gallery->post_content);
+    }
+
+    /**
+     * Raw Renewal fields.
+     */
+    public function raw_renewal()
+    {
+        return array(
+            'content' => $this->about_page_content()['rr_content'],
+            'logo' => $this->about_page_content()['rr_logo'],
+            'url' => $this->about_page_content()['rr_url'],
+            'address' => $this->about_page_content()['rr_address'],
+            'gmaps' => $this->about_page_content()['rr_gmaps_embed'],
+        );
+    }
 }

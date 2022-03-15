@@ -2,10 +2,6 @@
 $about_content = $about_page_content['content'];
 $about_content_img_right = $about_page_content['content_with_image_right'];
 $about_content_img_left = $about_page_content['content_with_image_left'];
-
-$rr_content = $about_page_content['rr_content'];
-$rr_logo = $about_page_content['rr_logo'];
-$rr_url = $about_page_content['rr_url'];
 @endphp
 
 <section id="about" class="container-fluid bg-light pb-4 pt-5">
@@ -48,14 +44,14 @@ $rr_url = $about_page_content['rr_url'];
 <div class="container">
     <div class="row my-5">
         <div class="col-6 col-lg-9 d-flex align-items-center">
-            <span class="h4">{!! $rr_content !!}</span>
+            <span class="h4">{!! $raw_renewal['content'] !!}</span>
         </div>
         <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center">
-            @if (!empty($rr_url))
-                <a href="{{ esc_url($rr_url) }}" target="_blank" rel="noopener noreferrer">
+            @if (!empty($raw_renewal['url']))
+                <a href="{{ esc_url($raw_renewal['url']) }}" target="_blank" rel="noopener noreferrer">
             @endif
-            <img src="{!! esc_url($rr_logo['sizes']['thumbnail']) !!}" alt="{{ esc_attr($rr_logo['alt']) }}" class="grow img-fluid">
-            @if (!empty($rr_url))
+            <img src="{!! esc_url($raw_renewal['logo']['sizes']['thumbnail']) !!}" alt="{{ esc_attr($raw_renewal['logo']['alt']) }}" class="grow img-fluid">
+            @if (!empty($raw_renewal['url']))
                 </a>
             @endif
         </div>
