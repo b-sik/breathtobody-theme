@@ -124,3 +124,39 @@ function nav_menu_fix_anchor_link($items, $args)
 }
 
 add_filter('wp_nav_menu_items', 'nav_menu_fix_anchor_link', 10, 2);
+
+/**
+ * Disable Gutenberg everywhere except Gallery.
+ */
+function enable_block_editor_for_gallery($use_block_editor, $post)
+{
+    $gallery = get_page_by_title('Gallery');
+    if ($gallery->ID === $post->ID) {
+        return true;
+    }
+    return false;
+}
+
+add_filter('use_block_editor_for_post', 'enable_block_editor_for_gallery', 10, 2);
+
+/**
+ * Allow only Gallery block.
+ */
+function allowed_block_types($block_editor_context, $editor_context)
+{
+    if (!empty($editor_context->post)) {
+        return array(
+            'core/gallery',
+        );
+    }
+    return $block_editor_context;
+}
+
+add_filter('allowed_block_types_all', 'allowed_block_types', 10, 2);
+
+
+function remove_editor_from_pages()
+{
+    remove_post_type_support('page', 'editor');
+}
+add_action('init', 'remove_editor_from_pages');
