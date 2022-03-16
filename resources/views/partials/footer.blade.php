@@ -5,7 +5,7 @@
             <small class='d-block'>&copy;&nbsp;{{ date('Y') }} - {!! $site_name !!}</small>
         </div>
         <div class="col-12 col-lg-4 pb-2 pb-lg-0 d-flex justify-content-center align-items-center">
-            <img src="{!! $site_icon_url !!}" class="img-fluid w-50 mb-3 mb-lg-0 rounded"
+            <img src="{!! $site_icon_url !!}" class="grow img-fluid w-50 mb-3 mb-lg-0 rounded"
                 style="max-width:75px;height:auto;">
         </div>
         <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end align-items-center">
