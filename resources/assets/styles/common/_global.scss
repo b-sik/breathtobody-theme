@@ -8,16 +8,6 @@ ul {
   padding: 0;
 }
 
-.hero-height {
-  @include media-breakpoint-down(lg) {
-    height: 30vh;
-  }
-
-  @include media-breakpoint-up(lg) {
-    height: 40vh;
-  }
-}
-
 .grow {
   transition: transform 0.5s;
 

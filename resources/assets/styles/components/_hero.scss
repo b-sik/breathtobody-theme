@@ -1,0 +1,9 @@
+.simpleParallax {
+  @include media-breakpoint-down(lg) {
+    height: 30vh;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: 40vh;
+  }
+}

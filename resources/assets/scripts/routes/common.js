@@ -1,8 +1,11 @@
+import simpleParallax from 'simple-parallax-js';
+
 export default {
-  init() {
-    // JavaScript to be fired on all pages
-  },
+  init() {},
   finalize() {
-    // JavaScript to be fired on all pages, after page specific JS is fired
+    var image = document.getElementsByClassName('hero-img');
+    new simpleParallax(image, {
+      delay: .6,
+    });
   },
 };

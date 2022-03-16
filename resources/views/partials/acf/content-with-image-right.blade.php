@@ -3,8 +3,7 @@ $image = $content_override ? $content_override['image'] : $content_with_image_ri
 $content = $content_override ? $content_override['content'] : $content_with_image_right['content'];
 @endphp
 
-<div
-    class="{!! !is_front_page() ? 'order-1 order-lg-0' : 'mb-5 mb-lg-0' !!} col-12 col-lg-6 d-flex flex-column text-center justify-content-center align-items-center">
+<div class="{!! !is_front_page() ? 'order-1 order-lg-0' : 'mb-5 mb-lg-0' !!} col-12 col-lg-6 d-flex flex-column text-center justify-content-center align-items-center">
     {!! $content !!}
 </div>
 <div class="{!! !is_front_page() ? 'order-0 order-lg-1 mb-5 mb-lg-0' : '' !!} col-12 col-lg-6  d-flex justify-content-center align-items-center">
