@@ -4,8 +4,6 @@ export default {
   init() {},
   finalize() {
     var image = document.getElementsByClassName('hero-img');
-    new simpleParallax(image, {
-      delay: .6,
-    });
+    new simpleParallax(image);
   },
 };
